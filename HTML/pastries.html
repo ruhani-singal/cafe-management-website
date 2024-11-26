@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <title>Brewsters Coffee - Pastries</title>
+    <style>
+        :root {
+            --primary: #7d141d;
+            --secondary: #a41b27;
+            --accent: #db9395;
+            --light-accent: #f4e7e7;
+            --text: #2C1810;
+            --background: #faf6f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url('oakroastedcoffee.png');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+        }
+
+        header{
+    position:sticky;
+    width:100%;
+    top:0;
+    right:0;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 18px 100px; 
+    transition: 0.5s linear;
+    background-color: var(--background);
+    font-family: "Poppins",'sans-serrif';
+    height:100px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.logo img{
+    max-width:none;
+}
+.navbar{
+    display: flex;
+}
+ .navbar a{
+    /* padding:8px 17px; */
+    /* gap: 10px; */
+    color: var(--text-color);
+    font-size: 18px;
+    text-transform: uppercase;
+    /* font-weight:800; */
+    /* font-style: bold; */
+    text-decoration: none;
+}
+
+/* .navbar a:hover{
+    background-color:#7d141d;
+    border-radius: 0.2rem;
+    transition: 0.2s all linear;
+} */
+
+.navbar li{
+    list-style: none;
+    gap: 10px;
+}
+
+.header-icon {
+    margin-left: 20px;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    gap: 20px; /* Adds spacing between icons */
+    align-items: center; /* Aligns icons vertically */
+}
+
+.header-icon .bx {
+    color: var(--text-color); /* Ensures consistent icon color */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.header-icon .bx:hover {
+    color: var(--main-color); /* Changes icon color on hover */
+}
+
+.search-box{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%);
+    background: var(--text-color);
+    width: 100%;
+}
+.search-box input{
+    padding: 20px;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 1rem;
+    color: var(--main-color);
+}
+.search-box input::placeholder{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.navbar{
+    display: flex;
+}
+.navbar a {
+    /* color: white; */
+    padding: 10px;
+    gap: 20px;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    position: relative; /* Required for the pseudo-element */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 6px; /* Adjust to place underline just below text */
+    width: 0;
+    height: 2px; /* Thickness of underline */
+    background-color: var(--primary); /* Color of underline */
+    transition: width 0.3s ease; /* Animation effect for underline */
+}
+
+a:hover {
+    color: var(--primary); /* Change link color on hover */
+}
+
+a:hover::after {
+    width: 100%; /* Expands underline on hover */
+}
+
+.search{
+    background-color: white;
+    border-radius: 30px;
+    padding: 5px;
+}
+
+.search:hover{
+    border-color: #7d141d;
+    border: 2px solid;
+}
+
+.search input{
+    background-color: transparent;
+    border: none;
+    /* border-radius: 20px; */
+    height: 30px;
+    /* padding: 10px; */
+}
+.search input:focus{
+    outline:none;
+}
+
+        .category-title {
+            text-align: center;
+            color: var(--primary);
+            margin: 2rem 0;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .category-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(125, 20, 29, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--light-accent);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(125, 20, 29, 0.2);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--light-accent);
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--secondary);
+            padding: 0.3rem 0.8rem;
+            background-color: var(--light-accent);
+            border-radius: 15px;
+        }
+
+        .order-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .order-btn:hover {
+            background-color: var(--secondary);
+            transform: scale(1.05);
+        }
+
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            padding: 0 1rem;
+        }
+
+        .category-btn {
+            background-color: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .nav-bar {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .nav-bar a {
+                display: block;
+                margin: 0.2rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+            <!--navbar-->
+            <header>
+                <div class="logo">
+                    <!--img src, will add later on-->
+                </div>
+                <!--menu icon-->
+                <i class='bx bx-menu' id="menu-icon"></i>
+                <!--Links-->
+                <ul class="navbar">
+                    <li><a href="projectwork.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="merchandise.html">Merch</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="customers.html">Customers</a></li>
+                    <li><a href="loginpage.html">Login</a></li>
+                </ul>
+                <!--icons-->
+                <div class="header-icon">
+                    <div class="search">
+                        <input type = "text" name="search" id="" placeholder="Search here...">
+                        <i class='bx bx-search' id="search icon"></i>
+                    </div>
+                    <a href="cart.html">
+                        <i class='bx bx-cart-alt'></i></a>
+                    
+                </div>
+                
+            </header>
+    
+
+        
+        <div class="header flex items-center justify-center">
+            <h1 class="text-white text-7xl font-bold items-center justify-center">&nbsp; &nbsp; OAK ROASTED<br> &nbsp;COFFEE|PASTRIES</h1>
+        </div>
+        
+    <br><br>
+
+
+    <nav class="category-nav">
+        <button class="category-btn"><a href="products.html">All Items</a></button>
+        <button class="category-btn"><a href="hotdrinks.html">Hot Drinks</a></button>
+        <button class="category-btn"><a href="colddrinks.html">Cold Drinks</a></button>
+        <button class="category-btn active">Pastries</button>
+        <button class="category-btn"><a href="seasonal.html">Seasonal</a></button>
+    </nav>
+    <div class="container">
+        <h2 class="category-title">Pastries</h2>
+        <div class="products-grid">
+            <div class="card" data-id="37" data-title="Classic Croissant" data-price="219">
+                <img src="french.jpg!w700wp" alt="Classic Croissant" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Classic Croissant</h3>
+                    <p class="card-description">Flaky, buttery layers of hand-crafted perfection. Baked fresh daily for that authentic French bakery experience.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.219</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-id="38" data-title="Chocolate Danish" data-price="149">
+                <img src="danish.webp" alt="Chocolate Danish" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Chocolate Danish</h3>
+                    <p class="card-description">Flaky pastry filled with rich chocolate and drizzled with a vanilla glaze for the perfect sweet treat.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.149</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-id="39" data-title="Blueberry Muffin" data-price="199">
+                <img src="berry.webp" alt="Blueberry Muffin" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Blueberry Muffin</h3>
+                    <p class="card-description">Moist, tender muffin packed with fresh blueberries and topped with a crispy streusel crumble.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.199</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-id="40" data-title="Cinnamon Roll" data-price="179">
+                <img src="roll.jpg" alt="Cinnamon Roll" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Cinnamon Roll</h3>
+                    <p class="card-description">Soft, swirled pastry loaded with cinnamon and topped with cream cheese frosting.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.179</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-id="41" data-title="Almond Biscotti" data-price="159">
+                <img src="biscuit.jpg" alt="Almond Biscotti" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Almond Biscotti</h3>
+                    <p class="card-description">Twice-baked Italian cookie with roasted almonds, perfect for dipping in your favorite coffee.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.159</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-id="42" data-title="Raspberry Scone" data-price="299">
+                <img src="pink.jpeg" alt="Raspberry Scone" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Raspberry Scone</h3>
+                    <p class="card-description">Buttery scone filled with fresh raspberries and finished with a sweet vanilla glaze.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.299</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-id="43" data-title="Apple Turnover" data-price="245">
+                <img src="puff 1.webp" alt="Apple Turnover" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Apple Turnover</h3>
+                    <p class="card-description">Flaky puff pastry filled with cinnamon-spiced apples and drizzled with caramel sauce.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.245</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-id="44" data-title="Chocolate Chip Cookie" data-price="99">
+                <img src="cokie.jpg" alt="Chocolate Chip Cookie" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Chocolate Chip Cookie</h3>
+                    <p class="card-description">Classic cookie loaded with premium chocolate chips, baked to golden perfection.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.99</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-id="45" data-title="Lemon Pound Cake" data-price="119">
+                <img src="bread.jpg" alt="Lemon Pound Cake" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Lemon Pound Cake</h3>
+                    <p class="card-description">Rich, moist pound cake infused with lemon zest and topped with citrus glaze.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.119</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-id="46" data-title="Cheese Danish" data-price="139">
+                <img src="chese.webp" alt="Cheese Danish" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Cheese Danish</h3>
+                    <p class="card-description">Flaky pastry filled with sweet cream cheese and topped with a vanilla drizzle.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.139</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-id="47" data-title="Banana Nut Muffin" data-price="169">
+                <img src="muff.jpeg" alt="Banana Nut Muffin" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Banana Nut Muffin</h3>
+                    <p class="card-description">Moist banana muffin loaded with walnuts and topped with a crunchy streusel.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.169</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-id="48" data-title="Pain au Chocolat" data-price="239">
+                <img src="chitkara.jpg" alt="Pain au Chocolat" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Pain au Chocolat</h3>
+                    <p class="card-description">Buttery croissant dough wrapped around premium dark chocolate batons.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.239</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+    </body>
+    </html>
+    

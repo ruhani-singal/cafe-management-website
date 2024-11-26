@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merch - Coffee Shop</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url('cap.png');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+        }
+        header{
+    position:sticky;
+    width:100%;
+    top:0;
+    right:0;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 18px 100px; 
+    transition: 0.5s linear;
+    background-color: var(--background);
+    font-family: "Poppins",'sans-serrif';
+    height:100px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.logo img{
+    max-width:none;
+}
+.navbar{
+    display: flex;
+}
+ .navbar a{
+    /* padding:8px 17px; */
+    /* gap: 10px; */
+    color: var(--text-color);
+    font-size: 18px;
+    text-transform: uppercase;
+    /* font-weight:800; */
+    /* font-style: bold; */
+    text-decoration: none;
+}
+
+/* .navbar a:hover{
+    background-color:#7d141d;
+    border-radius: 0.2rem;
+    transition: 0.2s all linear;
+} */
+
+.navbar li{
+    list-style: none;
+    gap: 10px;
+}
+
+.header-icon {
+    margin-left: 20px;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    gap: 20px; /* Adds spacing between icons */
+    align-items: center; /* Aligns icons vertically */
+}
+
+.header-icon .bx {
+    color: var(--text-color); /* Ensures consistent icon color */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.header-icon .bx:hover {
+    color: var(--main-color); /* Changes icon color on hover */
+}
+
+.search-box{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%);
+    background: var(--text-color);
+    width: 100%;
+}
+.search-box input{
+    padding: 20px;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 1rem;
+    color: var(--main-color);
+}
+.search-box input::placeholder{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.navbar{
+    display: flex;
+}
+.navbar a {
+    /* color: white; */
+    padding: 10px;
+    gap: 20px;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    position: relative; /* Required for the pseudo-element */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 6px; /* Adjust to place underline just below text */
+    width: 0;
+    height: 2px; /* Thickness of underline */
+    background-color: var(--primary); /* Color of underline */
+    transition: width 0.3s ease; /* Animation effect for underline */
+}
+
+a:hover {
+    color: var(--primary); /* Change link color on hover */
+}
+
+a:hover::after {
+    width: 100%; /* Expands underline on hover */
+}
+
+.search{
+    background-color: white;
+    border-radius: 30px;
+    padding: 5px;
+}
+
+.search:hover{
+    border-color: #7d141d;
+    border: 2px solid;
+}
+
+.search input{
+    background-color: transparent;
+    border: none;
+    /* border-radius: 20px; */
+    height: 30px;
+    /* padding: 10px; */
+}
+.search input:focus{
+    outline:none;
+}
+
+    </style>
+</head>
+<body class="bg-white">
+     <!--navbar-->
+     <header>
+        <div class="logo">
+            <!--img src, will add later on-->
+        </div>
+        <!--menu icon-->
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <!--Links-->
+        <ul class="navbar">
+            <li><a href="projectwork.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="merchandise.html">Merch</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="customers.html">Customers</a></li>
+            <li><a href="loginpage.html">Login</a></li>
+        </ul>
+        <!--icons-->
+        <div class="header-icon">
+            <div class="search">
+                <input type = "text" name="search" id="" placeholder="Search here...">
+                <i class='bx bx-search' id="search icon"></i>
+            </div>
+            <a href="cart.html">
+                <i class='bx bx-cart-alt'></i></a>
+            
+        </div>
+        
+    </header>
+
+
+    <!-- Hero Section -->
+    <div class="hero-section flex items-center justify-center">
+        <h1 class="text-white text-9xl font-bold">MERCH</h1>
+    </div>
+<br><br>
+    <!-- Category Navigation
+    <div class="max-w-7xl mx-auto py-8"> 
+        <div class="flex justify-center space-x-8">
+            <a href="#" class="nav-link active">ALL</a>
+            <a href="#" class="nav-link">NEW!</a>
+            <a href="#" class="nav-link">APPAREL</a>
+            <a href="#" class="nav-link">HATS</a>
+            <a href="#" class="nav-link">MUGS</a>
+            <a href="#" class="nav-link">TRAVEL</a>
+            <a href="#" class="nav-link">OTHER</a>
+            <a href="#" class="nav-link">SALE</a>
+        </div>
+    </div> -->
+
+    <!-- Product Grid -->
+    <div class="max-w-7xl mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Gift Card -->
+            <div class="product-card">
+                <img src="/api/placeholder/400/400" alt="Gift Card" class="w-full h-64 object-cover mb-4">
+                <h3 class="text-xl font-bold text-brown-900">GIFT CARD</h3>
+                <p class="text-sm text-gray-600 mb-2">GIFT CARD - ACCEPTED AT ALL SUMMER MOON LOCATIONS (NOT ACCEPTED ONLINE)</p>
+                <p class="price font-medium">$5.00</p>
+            </div>
+
+            <!-- Autumn Moon Latte Candle -->
+            <div class="product-card">
+                <img src="/api/placeholder/400/400" alt="Candle" class="w-full h-64 object-cover mb-4">
+                <h3 class="text-xl font-bold text-brown-900">AUTUMN MOON LATTE CANDLE</h3>
+                <p class="text-sm text-gray-600 mb-2">EXCLUSIVELY FOR SUMMER MOON BY WILD SUSAN</p>
+                <p class="price font-medium">$28.95</p>
+            </div>
+
+            <!-- Four Seasons Mug -->
+            <div class="product-card">
+                <img src="/api/placeholder/400/400" alt="Mug" class="w-full h-64 object-cover mb-4">
+                <h3 class="text-xl font-bold text-brown-900">FOUR SEASONS MUG - WINTER</h3>
+                <p class="price font-medium">$24.95</p>
+            </div>
+
+            <div class="product-card">
+                <img src="/api/placeholder/400/400" alt="Candle" class="w-full h-64 object-cover mb-4">
+                <h3 class="text-xl font-bold text-brown-900">AUTUMN MOON LATTE CANDLE</h3>
+                <p class="text-sm text-gray-600 mb-2">EXCLUSIVELY FOR SUMMER MOON BY WILD SUSAN</p>
+                <p class="price font-medium">$28.95</p>
+            </div>
+
+            <div class="product-card">
+                <img src="/api/placeholder/400/400" alt="Candle" class="w-full h-64 object-cover mb-4">
+                <h3 class="text-xl font-bold text-brown-900">AUTUMN MOON LATTE CANDLE</h3>
+                <p class="text-sm text-gray-600 mb-2">EXCLUSIVELY FOR SUMMER MOON BY WILD SUSAN</p>
+                <p class="price font-medium">$28.95</p>
+            </div>
+
+            <div class="product-card">
+                <img src="/api/placeholder/400/400" alt="Candle" class="w-full h-64 object-cover mb-4">
+                <h3 class="text-xl font-bold text-brown-900">AUTUMN MOON LATTE CANDLE</h3>
+                <p class="text-sm text-gray-600 mb-2">EXCLUSIVELY FOR SUMMER MOON BY WILD SUSAN</p>
+                <p class="price font-medium">$28.95</p>
+            </div>
+
+            <div class="product-card">
+                <img src="/api/placeholder/400/400" alt="Candle" class="w-full h-64 object-cover mb-4">
+                <h3 class="text-xl font-bold text-brown-900">AUTUMN MOON LATTE CANDLE</h3>
+                <p class="text-sm text-gray-600 mb-2">EXCLUSIVELY FOR SUMMER MOON BY WILD SUSAN</p>
+                <p class="price font-medium">$28.95</p>
+            </div>
+
+            <div class="product-card">
+                <img src="/api/placeholder/400/400" alt="Candle" class="w-full h-64 object-cover mb-4">
+                <h3 class="text-xl font-bold text-brown-900">AUTUMN MOON LATTE CANDLE</h3>
+                <p class="text-sm text-gray-600 mb-2">EXCLUSIVELY FOR SUMMER MOON BY WILD SUSAN</p>
+                <p class="price font-medium">$28.95</p>
+            </div>
+
+            <div class="product-card">
+                <img src="/api/placeholder/400/400" alt="Candle" class="w-full h-64 object-cover mb-4">
+                <h3 class="text-xl font-bold text-brown-900">AUTUMN MOON LATTE CANDLE</h3>
+                <p class="text-sm text-gray-600 mb-2">EXCLUSIVELY FOR SUMMER MOON BY WILD SUSAN</p>
+                <p class="price font-medium">$28.95</p>
+            </div>
+
+            <div class="product-card">
+                <img src="/api/placeholder/400/400" alt="Candle" class="w-full h-64 object-cover mb-4">
+                <h3 class="text-xl font-bold text-brown-900">AUTUMN MOON LATTE CANDLE</h3>
+                <p class="text-sm text-gray-600 mb-2">EXCLUSIVELY FOR SUMMER MOON BY WILD SUSAN</p>
+                <p class="price font-medium">$28.95</p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

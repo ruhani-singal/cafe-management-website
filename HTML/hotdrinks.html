@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <title>Brewsters Coffee - Hot Drinks</title>
+    <style>
+        :root {
+            --primary: #7d141d;
+            --secondary: #a41b27;
+            --accent: #db9395;
+            --light-accent: #f4e7e7;
+            --text: #2C1810;
+            --background: #faf6f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url('oakroastedcoffee.png');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+        }
+
+        header{
+    position:sticky;
+    width:100%;
+    top:0;
+    right:0;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 18px 100px; 
+    transition: 0.5s linear;
+    background-color: var(--background);
+    font-family: "Poppins",'sans-serrif';
+    height:100px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.logo img{
+    max-width:none;
+}
+.navbar{
+    display: flex;
+}
+ .navbar a{
+    /* padding:8px 17px; */
+    /* gap: 10px; */
+    color: var(--text-color);
+    font-size: 18px;
+    text-transform: uppercase;
+    /* font-weight:800; */
+    /* font-style: bold; */
+    text-decoration: none;
+}
+
+/* .navbar a:hover{
+    background-color:#7d141d;
+    border-radius: 0.2rem;
+    transition: 0.2s all linear;
+} */
+
+.navbar li{
+    list-style: none;
+    gap: 10px;
+}
+
+.header-icon {
+    margin-left: 20px;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    gap: 20px; /* Adds spacing between icons */
+    align-items: center; /* Aligns icons vertically */
+}
+
+.header-icon .bx {
+    color: var(--text-color); /* Ensures consistent icon color */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.header-icon .bx:hover {
+    color: var(--main-color); /* Changes icon color on hover */
+}
+
+.search-box{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%);
+    background: var(--text-color);
+    width: 100%;
+}
+.search-box input{
+    padding: 20px;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 1rem;
+    color: var(--main-color);
+}
+.search-box input::placeholder{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.navbar{
+    display: flex;
+}
+.navbar a {
+    /* color: white; */
+    padding: 10px;
+    gap: 20px;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    position: relative; /* Required for the pseudo-element */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 6px; /* Adjust to place underline just below text */
+    width: 0;
+    height: 2px; /* Thickness of underline */
+    background-color: var(--primary); /* Color of underline */
+    transition: width 0.3s ease; /* Animation effect for underline */
+}
+
+a:hover {
+    color: var(--primary); /* Change link color on hover */
+}
+
+a:hover::after {
+    width: 100%; /* Expands underline on hover */
+}
+
+.search{
+    background-color: white;
+    border-radius: 30px;
+    padding: 5px;
+}
+
+.search:hover{
+    border-color: #7d141d;
+    border: 2px solid;
+}
+
+.search input{
+    background-color: transparent;
+    border: none;
+    /* border-radius: 20px; */
+    height: 30px;
+    /* padding: 10px; */
+}
+.search input:focus{
+    outline:none;
+}
+        .category-title {
+            text-align: center;
+            color: var(--primary);
+            margin: 2rem 0;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .category-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(125, 20, 29, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--light-accent);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(125, 20, 29, 0.2);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--light-accent);
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--secondary);
+            padding: 0.3rem 0.8rem;
+            background-color: var(--light-accent);
+            border-radius: 15px;
+        }
+
+        .order-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .order-btn:hover {
+            background-color: var(--secondary);
+            transform: scale(1.05);
+        }
+
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            padding: 0 1rem;
+        }
+
+        .category-btn {
+            background-color: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-bar {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .nav-bar a {
+                display: block;
+                margin: 0.2rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+            <!--navbar-->
+            <header>
+                <div class="logo">
+                    <!--img src, will add later on-->
+                </div>
+                <!--menu icon-->
+                <i class='bx bx-menu' id="menu-icon"></i>
+                <!--Links-->
+                <ul class="navbar">
+                    <li><a href="projectwork.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="merchandise.html">Merch</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="customers.html">Customers</a></li>
+                    <li><a href="loginpage.html">Login</a></li>
+                </ul>
+                <!--icons-->
+                <div class="header-icon">
+                    <div class="search">
+                        <input type = "text" name="search" id="" placeholder="Search here...">
+                        <i class='bx bx-search' id="search icon"></i>
+                    </div>
+                    <a href="cart.html">
+                        <i class='bx bx-cart-alt'></i></a>
+                    
+                </div>
+                
+            </header>
+    
+        
+        <div class="header flex items-center justify-center">
+            <h1 class="text-white text-7xl font-bold items-center justify-center">&nbsp; &nbsp; &nbsp; OAK ROASTED<br> &nbsp;COFFEE|HOT DRINKS</h1>
+        </div>
+        
+    <br><br>
+
+    <nav class="category-nav">
+        <button class="category-btn"><a href="products.html">All Items</a></button>
+        <button class="category-btn active">Hot Drinks</button>
+        <button class="category-btn"><a href="colddrinks.html">Cold Drinks</a></button>
+        <button class="category-btn"><a href="pastries.html">Pastries</a></button>
+        <button class="category-btn"><a href="seasonal.html">Seasonal</a></button>
+    </nav>
+    <div class="container">
+        <h2 class="category-title">Hot Drinks</h2>
+
+        <div class="products-grid">
+            <div class="card" data-id="13" data-title="Caramel Macchiato" data-price="199">
+                <img src="caramel 1.jpg" alt="Caramel Macchiato" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Caramel Macchiato</h3>
+                    <p class="card-description">Smooth espresso layered with vanilla-flavored syrup, milk and caramel drizzle for an oh-so-sweet finish.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.199</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-id="14" data-title="Vanilla Latte" data-price="189">
+                <img src="vanillla.jpg" alt="Vanilla Latte" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Vanilla Latte</h3>
+                    <p class="card-description">Rich espresso balanced with vanilla-flavored syrup and steamed milk, topped with a light layer of foam.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.189</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-id="15" data-title="Classic Cappuccino" data-price="249">
+                <img src="classic c.webp" alt="Classic Cappuccino" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Classic Cappuccino</h3>
+                    <p class="card-description">Perfect balance of rich espresso, steamed milk, and thick, creamy foam for a traditional Italian experience.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.249</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-id="16" data-title="Americano" data-price="159">
+                <img src="america.webp" alt="Americano" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Americano</h3>
+                    <p class="card-description">Espresso shots topped with hot water to produce a light layer of crema for an authentic coffee experience.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.159</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-id="17" data-title="Pumpkin Spice Latte" data-price="299">
+                <img src="pumpkin 1.webp" alt="Pumpkin Spice Latte" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Pumpkin Spice Latte</h3>
+                    <p class="card-description">Signature espresso blend with pumpkin spice sauce, steamed milk, and topped with whipped cream.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.299</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-id="18" data-title="Matcha Green Tea Latte" data-price="199">
+                <img src="green 1.jpg" alt="Matcha Green Tea Latte" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Matcha Green Tea Latte</h3>
+                    <p class="card-description">Premium Japanese matcha green tea powder whisked with steamed milk for a peaceful experience.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.199</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-id="19" data-title="Hot Chocolate" data-price="319">
+                <img src="lux.webp" alt="Hot Chocolate" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Luxury Hot Chocolate</h3>
+                    <p class="card-description">Rich Belgian chocolate melted into steamed milk, topped with whipped cream and chocolate shavings.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.319</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-id="20" data-title="Caramel MacchiatChai Tea Latte" data-price="99">
+                <img src="home.webp" alt="Chai Tea Latte" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Spiced Chai Latte</h3>
+                    <p class="card-description">Black tea infused with cinnamon, clove, and other warming spices, combined with steamed milk.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.99</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-id="21" data-title="Mocha" data-price="179">
+                <img src="mocha.avif" alt="Mocha" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Classic Mocha</h3>
+                    <p class="card-description">Espresso combined with rich chocolate sauce and steamed milk, topped with whipped cream.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.179</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-id="22" data-title="Hazelnut Latte" data-price="169">
+                <img src="hazel 1.jpg" alt="Hazelnut Latte" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Hazelnut Latte</h3>
+                    <p class="card-description">Espresso with steamed milk and rich hazelnut syrup, topped with a light hazelnut drizzle.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.169</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-id="23" data-title="London Fog" data-price="199">
+                <img src="london.jpg" alt="London Fog" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">London Fog</h3>
+                    <p class="card-description">Earl Grey tea with steamed milk, vanilla syrup, and a hint of lavender, lightly topped with foam.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.199</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-id="24" data-title="Cinnamon Dolce Latte" data-price="79">
+                <img src="dop.jpg" alt="Cinnamon Dolce Latte" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Cinnamon Dolce Latte</h3>
+                    <p class="card-description">Espresso with steamed milk and cinnamon dolce syrup, topped with whipped cream and cinnamon sprinkles.</p>
+                    <div class="card-footer">
+                        <span class="price">Rs.79</span>
+                        <button class="order-btn" onclick="addToCart(this)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+    
+</body>
+</html>

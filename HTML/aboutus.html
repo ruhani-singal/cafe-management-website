@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brewsters Coffee - About Us</title>
+    <style>
+        :root {
+            --primary: #7d141d;
+            --secondary: #a41b27;
+            --accent: #db9395;
+            --light-accent: #f4e7e7;
+            --text: #2C1810;
+            --background: #faf6f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(125, 20, 29, 0.2);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .about-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 4rem;
+        }
+
+        .about-image {
+            flex-basis: 40%;
+            max-width: 400px;
+            height:300px;
+            background-image: url("aboutuspage.jpg");
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(125, 20, 29, 0.1);
+        }
+
+        .about-content {
+            flex-basis: 55%;
+        }
+
+        .about-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .mission-section {
+            background-color: var(--light-accent);
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .mission-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .mission-text {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-image {
+                margin-bottom: 2rem;
+            }
+
+            .about-content {
+                flex-basis: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Brewsters Coffee</h1>
+        <p>Crafting Perfect Moments, One Cup at a Time</p>
+    </header>
+
+    <div class="container">
+        <section class="about-section">
+            <img src='aboutuspage.jpg' alt="Brewsters Coffee" class="about-image">
+            <div class="about-content">
+                <h2 class="about-title">About Brewsters Coffee</h2>
+                <p class="about-text">
+                    Brewsters Coffee is a family-owned artisan coffee roastery and café that has been bringing the best coffee experiences to our community for over 15 years. We are passionate about sourcing the highest quality, ethically-grown coffee beans and roasting them to perfection to create the most flavorful and aromatic cups of coffee.
+                </p>
+                <p class="about-text">
+                    Our cozy café is a gathering place where friends, neighbors, and coffee enthusiasts can come together to enjoy our delicious beverages and baked goods. We take pride in our warm hospitality and commitment to using only the freshest, locally-sourced ingredients.
+                </p>
+            </div>
+        </section>
+
+        <section class="mission-section">
+            <h2 class="mission-title">Our Mission</h2>
+            <p class="mission-text">
+                At Brewsters Coffee, our mission is to provide our customers with an exceptional coffee experience that nourishes their body and soul. We believe that every cup of coffee should be a moment of joy, a respite from the everyday, and a celebration of the art of coffee making. By sourcing the finest beans, roasting them with care, and serving them with passion, we strive to create a community of coffee lovers who appreciate the craft and culture of this beloved beverage.
+            </p>
+        </section>
+    </div>
+</body>
+</html>
